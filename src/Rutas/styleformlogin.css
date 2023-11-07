@@ -1,0 +1,6 @@
+    .fullscreen-image {
+      background: url(../Letrero/BACK-1.png) no-repeat center;
+      image-orientation: middle;
+      background-size: 78%;
+      height: 100vh;
+    }

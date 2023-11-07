@@ -1,4 +1,5 @@
-import validarFormulario from "./validarlogin";
+import "./styleformlogin.css";
+import Lateral1 from "../Letrero/LATERAL.png";
 
 function FormLogin () {
     return(
@@ -11,7 +12,7 @@ function FormLogin () {
        <div class="card mt-5">
          <div class="card-header">
            <h3 class="text-center">¡Qué felicidad que te unas!</h3>
-           <img src="LATERAL.png" width="100%"></img>
+           <img src={Lateral1} alt={Lateral1} width="100%"></img>
          </div>
          <div class="card-body">
            <form onsubmit="validarFormulario(event)">
