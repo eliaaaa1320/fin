@@ -4,13 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from "../src/Rutas/login";
+import Index from "../src/Rutas/index";
+import Logup from "../src/Rutas/logup";
+import Home from "../src/Rutas/home";
+import Admin from "../src/Rutas/admin";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
     <Routes>
-      <Route path='/login' element={App}></Route>
+      <Route path="/login" element={Login}></Route>
+      <Route path="/index" element={Index}></Route>
+      <Route path="/logup" element={Logup}></Route>
+      <Route path="/home" element={Home}></Route>
+      <Route path="/admin" element={Admin}></Route>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>
