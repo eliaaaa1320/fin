@@ -1,5 +1,6 @@
 import "./styleformlogin.css";
 import Lateral1 from "../Letrero/LATERAL.png";
+import validarFormulario from "../Rutas/validarlogin";
 
 function FormLogin () {
     return(
@@ -15,7 +16,7 @@ function FormLogin () {
            <img src={Lateral1} alt={Lateral1} width="100%"></img>
          </div>
          <div class="card-body">
-           <form onsubmit="validarFormulario(event)">
+           <form onSubmit={validarFormulario}>
              <div class="form-group">
                <label for="email">Correo Electrónico</label>
                <input type="email" name="email" class="form-control" id="email" placeholder="Escribe aquí tu correo electrónico" required></input>
