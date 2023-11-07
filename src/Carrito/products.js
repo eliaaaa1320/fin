@@ -4,7 +4,7 @@ import Producto4 from "../Carrito/PRODUCTO-4.png";
 
 function ProductElement() {
     return (
-        <div class="col">
+        <div class="row row-cols-2 row-cols-md-2 g-4 text-center">
       <div class="card">
         <img src={Producto2} class="card-img-top" alt={Producto2}></img>
         <div class="card-body">
@@ -40,8 +40,6 @@ export default function ProductList() {
     return (
         <div className="col-8 d-flex flex-wrap justify-content-around">
             <h3 class="text-center">Por eso, nos gusta usar la impresión 3D para todo</h3>
-            <ProductElement></ProductElement>
-            <ProductElement></ProductElement>
             <ProductElement></ProductElement>
         </div>
     );

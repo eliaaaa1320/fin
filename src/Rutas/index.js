@@ -9,7 +9,7 @@ function Index() {
         <div>
         <NaveBar></NaveBar>
         <Letrero1></Letrero1>
-        <ProductList></ProductList>
+        <ProductList class="text-align-center"></ProductList>
         <Cart></Cart>
         <Foot></Foot>
         </div>
