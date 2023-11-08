@@ -1,16 +1,14 @@
 import NaveBar from "../NaveBar/navebar";
 import Letrero1 from "../Letrero/letrero1";
 import Foot from "../Foot/foot";
-import Cart from "../Carrito/carrito";
-import ProductList from "../Carrito/products";
+import Eshop from "../Carrito/eShop";
 
 function Index() {
     return(
         <div>
         <NaveBar></NaveBar>
         <Letrero1></Letrero1>
-        <ProductList class="text-align-center"></ProductList>
-        <Cart></Cart>
+        <Eshop></Eshop>
         <Foot></Foot>
         </div>
     );
