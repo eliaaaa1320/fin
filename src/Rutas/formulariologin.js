@@ -3,6 +3,43 @@ import Lateral1 from "../Letrero/LATERAL.png";
 import validarFormulario from "../Rutas/validarlogin";
 
 function FormLogin () {
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    validarFormulario(event);
+  
+    // Verificar si el formulario es válido antes de enviar la solicitud
+    if (formularioEsValido()) {
+      fetch("/login", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: document.getElementById("username").value,
+          password: document.getElementById("password").value,
+        }),
+      });
+    }
+  }
+  
+  function formularioEsValido() {
+    // Realiza tus validaciones del formulario aquí
+    // Si el formulario es válido, retorna true; de lo contrario, retorna false
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+  
+    if (username === "" || password === "") {
+      alert("Los campos de usuario y contraseña son obligatorios.");
+      return false;
+    }
+  
+    return true; // El formulario es válido
+  }
+  
+  
+
     return(
         <div class="container-fluid">
    <div class="row">
@@ -16,10 +53,10 @@ function FormLogin () {
            <img src={Lateral1} alt={Lateral1} width="100%"></img>
          </div>
          <div class="card-body">
-           <form onSubmit={validarFormulario}>
+           <form onSubmit={handleFormSubmit}>
              <div class="form-group">
                <label for="email">Correo Electrónico</label>
-               <input type="email" name="email" class="form-control" id="email" placeholder="Escribe aquí tu correo electrónico" required></input>
+               <input type="email" name="email" class="form-control" id="username" placeholder="Escribe aquí tu correo electrónico" required></input>
              </div>
              <div class="form-group">
                <label for="password">Contraseña</label>
@@ -39,6 +76,6 @@ function FormLogin () {
    </div>
  </div>
    );
-}
+    }
 
 export default FormLogin;
