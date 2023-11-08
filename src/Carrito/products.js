@@ -1,3 +1,4 @@
+import React from "react";
 import Producto2 from "../Carrito/PRODUCTO-2.png";
 import Producto3 from "../Carrito/PRODUCTO-3.png";
 import Producto4 from "../Carrito/PRODUCTO-4.png";
@@ -5,17 +6,17 @@ import Producto4 from "../Carrito/PRODUCTO-4.png";
 function ProductElement(props) {
 
     function addToCart() {
-      props.add((arrayViejito)=>[...arrayViejito, {nombre: props.nombre, precio: props.precio, description: props.description}])
+      props.add((arrayViejito)=>[...arrayViejito, {nombre: props.nombre, precio: props.precio, description: props.description, img: props.img}])
     }
     return (
-        <div class="col-4 row-cols-md-1 g-4 d-flex justify-content-around">
-      <div class="card">
-        <img src=".." class="card-img-top" alt=".."></img>
-        <div class="card-body col-12">
-          <h5 class="card-title">{props.nombre}</h5>
-          <p class="card-text">{props.description}</p>
+        <div className="col-4 row-cols-md-1 g-4 d-flex justify-content-around">
+      <div className="card">
+        <img src={props.img} class="card-img-top" alt={props.img} />
+        <div className="card-body col-12">
+          <h5 className="card-title">{props.nombre}</h5>
+          <p className="card-text">{props.description}</p>
           <h5 class="card-text">{props.precio}</h5>
-          <a href="#" class="btn btn-outline-secondary" onClick={addToCart}>Comprar</a>
+          <a href="#" className="btn btn-outline-secondary" onClick={addToCart}>Comprar</a>
         </div>
       </div>
       </div>
@@ -27,16 +28,19 @@ export default function ProductList(props) {
       nombre: "Skull",
       precio: 15000,
       description: "Ni sabíamos que estamos huecos por dentro, lo acabamos de descubrir.",
+      img: (Producto2),
     },
     {
       nombre: "Bloque ?",
       precio: 20000,
       description: "Mejor recolectar las monedas con mucho estilo, que no tener ni una.",
+      img: (Producto3),
     },
     {
       nombre: "Caldero ardiente",
       precio: 10000,
       description: "Perfecto para preparar cualquier pócima o convertirlo en matero.",
+      img: (Producto4),
     },
     ];
     
@@ -49,6 +53,7 @@ export default function ProductList(props) {
               nombre={product.nombre} 
               precio={product.precio} 
               description={product.description}
+              img={product.img}
               add={props.setSelectItem}
               ></ProductElement>
             })}
