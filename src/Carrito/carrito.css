@@ -1,4 +1,5 @@
-#cart{
+#list{
+    height: 300px;
     max-height: 340px !important;
     overflow-y: auto !important;
 }
