@@ -16,6 +16,22 @@ function Producto(props) {
 
 export default function Cart(props) {
     let total = 0;
+
+    function pay(){
+        let venta = {
+            producto: props.selectedItems,
+            total: total,
+        }
+        fetch(
+            "/pay", {
+                headers: {
+                    "Content-type": "Aplication/json",
+                },
+                method: "POST",
+                body: JSON.stringify(venta),
+            }
+        )
+    }
     return (
         <div className="col-4 mh-100" id="cart">
             <h2 className="d-flex justify-content-center">Carrito compras</h2>
@@ -31,7 +47,7 @@ export default function Cart(props) {
             </ol>
             <div className="d-flex justify-content-around col-12 mt-4">
             <button type="button" class="btn btn-outline-primary">Total:{total}</button>
-            <button type="button" class="btn btn-outline-success">Paga aquí</button>
+            <button type="button" class="btn btn-outline-success" onClick={pay}>Paga aquí</button>
             </div>
         </div>
     );
