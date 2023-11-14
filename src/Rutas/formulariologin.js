@@ -1,6 +1,7 @@
 import "./styleformlogin.css";
 import Lateral1 from "../Letrero/LATERAL.png";
 import validarFormulario from "../Rutas/validarlogin";
+import React, {useState} from "react";
 
 function FormLogin () {
 
@@ -38,7 +39,35 @@ function FormLogin () {
     return true; // El formulario es válido
   }
   
-  
+  //Recolección de información con JSON
+
+  const [formData, setFormData] = useState ({
+    username: "",
+    password: "",
+  });
+
+  const handleInput = (e) => {
+    const {name, value} = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const enviarFormulario = (e) => {
+    e.preventDefault();
+
+    console.log(formData);
+
+    fetch("localhost/Login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+  };
 
     return(
         <div class="container-fluid">
@@ -56,11 +85,11 @@ function FormLogin () {
            <form onSubmit={handleFormSubmit}>
              <div class="form-group">
                <label for="email">Correo Electrónico</label>
-               <input type="email" name="email" class="form-control" id="username" placeholder="Escribe aquí tu correo electrónico" required></input>
+               <input type="email" name="email" class="form-control" id="username" placeholder="Escribe aquí tu correo electrónico" required value={formData.username} onChange={handleInput}></input>
              </div>
              <div class="form-group">
                <label for="password">Contraseña</label>
-               <input type="password" name="password" class="form-control" id="password" placeholder="Escribe aquí tu contraseña" required></input>
+               <input type="password" name="password" class="form-control" id="password" placeholder="Escribe aquí tu contraseña" required value={formData.password} onChange={handleInput}></input>
              </div>
              <div class="form-group">
                <a href="#" class="small">¿Olvidaste la contraseña? No te preocupes, acá te ayudamos</a>
