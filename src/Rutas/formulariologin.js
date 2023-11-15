@@ -1,13 +1,15 @@
 import "./styleformlogin.css";
 import Lateral1 from "../Letrero/LATERAL.png";
 import validarFormulario from "../Rutas/validarlogin";
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 function FormLogin () {
 
   function handleFormSubmit(event) {
     event.preventDefault();
     validarFormulario(event);
+    //Validar envío de información pa que se vea en la consola
+    enviarFormulario();
   
     // Verificar si el formulario es válido antes de enviar la solicitud
     if (formularioEsValido()) {
@@ -47,10 +49,10 @@ function FormLogin () {
   });
 
   const handleInput = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
 
     setFormData({
-      ...formData,
+      ... formData,
       [name]: value,
     });
   };
@@ -68,36 +70,37 @@ function FormLogin () {
       body: JSON.stringify(formData),
     });
   };
+//Recolección terminada
 
     return(
-        <div class="container-fluid">
-   <div class="row">
-     <div class="col-md-6 fullscreen-image">
+        <div className="container-fluid">
+   <div className="row">
+     <div className="col-md-6 fullscreen-image">
 
      </div>
-     <div class="col-md-6">
-       <div class="card mt-5">
-         <div class="card-header">
-           <h3 class="text-center">¡Qué felicidad que te unas!</h3>
+     <div className="col-md-6">
+       <div className="card mt-5">
+         <div className="card-header">
+           <h3 className="text-center">¡Qué felicidad que te unas!</h3>
            <img src={Lateral1} alt={Lateral1} width="100%"></img>
          </div>
-         <div class="card-body">
+         <div className="card-body">
            <form onSubmit={handleFormSubmit}>
-             <div class="form-group">
-               <label for="email">Correo Electrónico</label>
-               <input type="email" name="email" class="form-control" id="username" placeholder="Escribe aquí tu correo electrónico" required value={formData.username} onChange={handleInput}></input>
+             <div className="form-group">
+               <label htmlFor="email">Correo Electrónico</label>
+               <input type="email" name="email" className="form-control" id="username" placeholder="Escribe aquí tu correo electrónico" required value={formData.username} onChange={handleInput}></input>
              </div>
-             <div class="form-group">
-               <label for="password">Contraseña</label>
-               <input type="password" name="password" class="form-control" id="password" placeholder="Escribe aquí tu contraseña" required value={formData.password} onChange={handleInput}></input>
+             <div className="form-group">
+               <label htmlFor="password">Contraseña</label>
+               <input type="password" name="password" className="form-control" id="password" placeholder="Escribe aquí tu contraseña" required value={formData.password} onChange={handleInput}></input>
              </div>
-             <div class="form-group">
-               <a href="#" class="small">¿Olvidaste la contraseña? No te preocupes, acá te ayudamos</a>
+             <div className="form-group">
+               <a href="#" className="small">¿Olvidaste la contraseña? No te preocupes, acá te ayudamos</a>
              </div>
-             <button type="submit" class="btn btn-outline-secondary">Registrar</button>
+             <button type="submit" className="btn btn-outline-secondary">Registrar</button>
            </form>
          </div>
-         <div class="card-footer text-center">
+         <div className="card-footer text-center">
            <p>¿Ya tienes una cuenta? <a href="#">Inicia sesión aquí</a></p>
          </div>
        </div>
