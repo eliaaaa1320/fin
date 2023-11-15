@@ -8,10 +8,10 @@ function ElementoProducto(props){
     props.agrega((arrayViejito)=>[...arrayViejito, {name: props.name, price: props.price, descripcion: props.descripcion, imgagen: props.imgagen}])
   }
   return (
-      <div className="col-4 row-cols-md-1 g-4 d-flex justify-content-around">
+      <div className="container row col-md-4">
     <div className="card">
       <img src={props.imgagen} className="card-img-top" alt={props.imgagen} />
-      <div className="card-body col-12">
+      <div className="card-body">
         <h5 className="card-title">{props.name}</h5>
         <p className="card-text">{props.descripcion}</p>
         <h5 className="card-text">{props.price}</h5>
@@ -44,8 +44,8 @@ export default function ListaProductos(props) {
   },
   ];
     return(
-        <div className="col-6 d-flex flex-wrap justify-content-around">
-            <h3 class="text-center">Estamos tan antojados que vamos a chicanear:</h3>
+        <div className="row col-md-12 d-flex justify-content-around">
+            <h3 class="text-center my-3">Estamos tan antojados que vamos a chicanear:</h3>
             {objeto.map((objeto) => (
             <ElementoProducto
             name={objeto.name}

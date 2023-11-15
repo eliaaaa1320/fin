@@ -46,7 +46,7 @@ export default function ProductList(props) {
     
     return (
         <div className="col-8 d-flex flex-wrap justify-content-around">
-            <h3 class="text-center">Por eso, nos gusta usar la impresión 3D para todo</h3>
+            <h3 class="text-center my-2">Por eso, nos gusta usar la impresión 3D para todo</h3>
             {products.map((product)=>{
               return <ProductElement 
               nombre={product.nombre} 

@@ -34,7 +34,7 @@ export default function Cart(props) {
     }
     return (
         <div className="col-4 mh-100" id="cart">
-            <h2 className="d-flex justify-content-center">Carrito compras</h2>
+            <h2 className="d-flex justify-content-center my-2">Carrito compras</h2>
             <ol className="list-group" id="list">
                 {
                     props.selectedItems.map((item)=>{
