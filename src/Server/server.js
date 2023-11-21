@@ -1,28 +1,12 @@
-//const http = require ("http");
+const express = require("express")();
+const server = express();
+const cors = require("cors");
 
-//const server = http.createServer((req, res) => {
-    //res.end("Se logró");
-//});
+server.use(cors()); //Permite la conexión con otros servidores
+server.use(express.json()); //Para leer los json
 
-//server.listen(3000, "localhost", () => {
-    //console.log("Si funciona");
-//});
-
-//const express = require ("express");
-
-//const server = express();
-//const PORT = 3000;
-
-//server.get("/", (req, res) => {
-    //res.send("Holis, esto es una petición");
-//});
-
-//server.listen(3000);
-
-const server = require("express")();
-
-server.get("/login", (req, res) => {
-    res.send(JSON.stringify({ user: "Holis"}));
+server.get("/", (req, res) => {
+    res.send("Holis");
 });
 
 server.listen(3000, () => {
